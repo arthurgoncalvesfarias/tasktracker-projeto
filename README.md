@@ -60,4 +60,4 @@ tasktracker-projeto/
 
 ## 👤 Autor
 
-[Seu Nome Completo] — Bootcamp II — [Polo/Turma]
+[Arthur Gonçalves Farias dos Reis] — Bootcamp II — [Ciência de Dados e Machine Learning]
