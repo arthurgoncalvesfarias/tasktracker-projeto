@@ -7,57 +7,76 @@ projeto cumulativo do Bootcamp II.
 
 O TaskTracker permite cadastrar tarefas com título, descrição, prioridade e data
 limite, visualizar todas as tarefas organizadas por prioridade e acompanhar quantas
-estão pendentes ou concluídas — tudo direto pelo terminal.
+estão pendentes ou concluídas, tudo direto pelo terminal.
 
-Este projeto é a evolução do planejamento lógico desenvolvido na **Fase 1** do
-Bootcamp II (veja `docs/planejamento_logico.pdf`), agora implementado em código
-Python funcional.
+O projeto evoluiu em três fases:
+
+| Fase | Foco | Resultado |
+|---|---|---|
+| 1 | Planejamento lógico | `docs/planejamento_logico.pdf` |
+| 2 | Git, GitHub e Python | `src/main.py` |
+| 3 | Containerização com Docker | `Dockerfile` e `docker-compose.yml` |
 
 ## 🚀 Funcionalidades
 
-- ✅ Cadastrar nova tarefa (título obrigatório, descrição, prioridade e data limite)
-- ✅ Validação estrita de prioridade (aceita apenas Alta, Média ou Baixa)
-- ✅ Validação de título (não aceita campos vazios)
-- ✅ Visualizar tarefas cadastradas, ordenadas por prioridade
-- ✅ Contagem de tarefas pendentes e concluídas
+- Cadastrar nova tarefa (título obrigatório, descrição, prioridade e data limite)
+- Validação estrita de prioridade (aceita apenas Alta, Média ou Baixa)
+- Validação de título (não aceita campos vazios)
+- Visualizar tarefas cadastradas, ordenadas por prioridade
+- Contagem de tarefas pendentes e concluídas
 
 ## 🛠️ Tecnologias utilizadas
 
-- **Python 3** (sem dependências externas)
+- Python 3.11
+- Docker e Docker Compose
 
 ## 📁 Estrutura do projeto
 
 ```
 tasktracker-projeto/
-├── README.md                     # Este arquivo
-├── .gitignore                    # Arquivos ignorados pelo Git
+├── .gitignore
 ├── docs/
 │   └── planejamento_logico.pdf   # Planejamento lógico da Fase 1
-└── src/
-    └── main.py                   # Código-fonte da aplicação
+├── src/
+│   └── main.py                   # Código-fonte da aplicação (Fase 2)
+├── Dockerfile                    # Receita da imagem (Fase 3)
+├── docker-compose.yml            # Orquestração da execução interativa (Fase 3)
+└── README.md
 ```
 
-## ▶️ Como executar
+## 🐳 Como executar com Docker
 
-1. Certifique-se de ter o **Python 3** instalado:
-   ```bash
-   python3 --version
-   ```
-2. Clone este repositório:
-   ```bash
-   git clone https://github.com/[seu-usuario]/tasktracker-projeto.git
-   cd tasktracker-projeto
-   ```
-3. Execute a aplicação:
-   ```bash
-   python3 src/main.py
-   ```
-4. Use o menu exibido no terminal para cadastrar e visualizar tarefas.
+**Pré-requisito:** ter o [Docker](https://www.docker.com/products/docker-desktop/)
+instalado e **em execução**. Rode os comandos abaixo na raiz do projeto.
 
-## 🗺️ Próximas etapas
+**Como construir a imagem:**
 
-- **Fase 3:** Empacotamento da aplicação, containerização com Docker, testes e deploy.
+```bash
+docker build -t tasktracker .
+```
+
+**Como rodar o container em modo isolado:**
+
+```bash
+docker run -it tasktracker
+```
+
+**Como rodar via orquestração (Recomendado):**
+
+```bash
+docker compose run --rm tasktracker-app
+```
+
+> A aplicação usa `input()`, por isso precisa de um terminal interativo. A flag `-it`
+> (no `docker run`) e as opções `stdin_open: true` e `tty: true` (no
+> `docker-compose.yml`) cumprem esse papel.
+
+## 💻 Como executar sem Docker (opcional)
+
+```bash
+python3 src/main.py
+```
 
 ## 👤 Autor
 
-[Arthur Gonçalves Farias dos Reis] — Bootcamp II — [Ciência de Dados e Machine Learning]
+[Seu Nome Completo], Bootcamp II, [Polo/Turma]
